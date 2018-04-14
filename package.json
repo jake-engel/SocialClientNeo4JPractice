@@ -1,0 +1,22 @@
+{
+  "name": "socialclient",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app"
+  },
+  "author": "Jake Engel",
+  "license": "ISC",
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.8",
+    "express": "^4.16.3",
+    "morgan": "^1.9.0",
+    "neo4j-driver": "^1.5.3",
+    "nodemon": "^1.17.3"
+  }
+}

@@ -1,0 +1,87 @@
+<% include ../views/partials/header %>
+
+<a class="btn btn-primary mt-2 mb-2" data-toggle="collapse" href="#addperson" role="button" aria-expanded="false" aria-controls="addperson">
+  Add New Person
+</a>
+<a class="btn btn-primary mt-2 mb-2" data-toggle="collapse" href="#addlocation" role="button" aria-expanded="false" aria-controls="addlocation">
+  Add New Location
+</a>
+<a class="btn btn-primary mt-2 mb-2" data-toggle="collapse" href="#connectfriends" role="button" aria-expanded="false" aria-controls="connectfriends">
+  Connect Friends
+</a>
+<a class="btn btn-primary mt-2 mb-2" data-toggle="collapse" href="#addbirthplace" role="button" aria-expanded="false" aria-controls="addbirthplace">
+  Add Birthplace
+</a>
+
+<div class="collapse pb-2" id="addperson">
+  <div class="card card-block bg-light card-body">
+    <h3>Add New Person</h3>
+    <form method="POST" action="/person/add">
+      <input type="text" name="name" placeholder="Name">
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+</div>
+<div class="collapse  pb-2" id="addlocation">
+  <div class="card card-block bg-light card-body">
+    <h3>Add New Location</h3>
+    <form method="POST" action="/location/add">
+      <input type="text" name="city" placeholder="City">
+      <input type="text" name="state" placeholder="State">
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+</div>
+<div class="collapse pb-2" id="connectfriends">
+  <div class="card card-block bg-light card-body">
+    <h3>Connect Friends</h3>
+    <form method="POST" action="/friends/connect">
+      <input type="text" name="name1" placeholder="Name1">
+      <input type="text" name="name2" placeholder="Name2">
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+</div>
+<div class="collapse" id="addbirthplace">
+  <div class="card card-block bg-light card-body">
+    <h3>Add Birthplace</h3>
+    <form method="POST" action="/person/born/add">
+      <input type="text" name="name" placeholder="Name">
+      <input type="text" name="city" placeholder="City">
+      <input type="text" name="state" placeholder="State">
+      <input type="text" name="year" placeholder="Year">
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+</div>
+
+<hr>
+
+<h3>People</h3>
+<div class="row">
+  <% persons.forEach((person) => { %>
+    <div class="col-md-3 p-2 m-2">
+      <a href="/person/<%= person.id %>">
+        <div class="card card-block bg-light text-center">
+          <i class="fa fa-user">
+            <%= person.name %>
+          </i>
+        </div>
+      </a>
+    </div>
+  <% }) %>
+</div>
+
+<h3>Locations</h3>
+<div class="row">
+  <% locations.forEach((location) => { %>
+    <div class="col-md-3 p-2 m-2">
+      <div class="card card-block bg-light text-center">
+        <i class="fa fa-map-marker">
+          <%= location.city %>, <%= location.state %>
+        </i>
+      </div>
+    </div>
+  <% }) %>
+</div>
+<% include ../views/partials/footer %>
